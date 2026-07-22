@@ -1,0 +1,1918 @@
+/*=========================================================
+    MAISON TEMPLATE
+    Version 1.0
+=========================================================*/
+
+
+/*=========================================================
+    VARIABLES
+=========================================================*/
+
+:root{
+
+    --background:#080808;
+    --background-light:#111111;
+
+    --panel:#161616;
+
+    --panel-hover:#1d1d1d;
+
+    --border:#343434;
+
+    --gold:#b89b63;
+
+    --gold-light:#d8c08a;
+
+    --red:#7f2929;
+
+    --text:#d9d6d1;
+
+    --title:#f2ede5;
+
+    --shadow:0 15px 40px rgba(0,0,0,.45);
+
+    --radius:14px;
+
+    --wrapper:1300px;
+
+}
+
+
+/*=========================================================
+    RESET
+=========================================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:"EB Garamond",serif;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+    overflow-x:hidden;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+
+/*=========================================================
+    TYPOGRAPHIE
+=========================================================*/
+
+h1,h2,h3{
+
+    font-family:"Cinzel",serif;
+
+    color:var(--title);
+
+    letter-spacing:2px;
+
+}
+
+h1{
+
+    font-size:4.5rem;
+
+    font-weight:600;
+
+}
+
+h2{
+
+    font-size:2.6rem;
+
+    margin-bottom:20px;
+
+}
+
+h3{
+
+    font-size:1.3rem;
+
+}
+
+p{
+
+    margin-bottom:1.5rem;
+
+}
+
+
+/*=========================================================
+    WRAPPER
+=========================================================*/
+
+.wrapper{
+
+    width:min(var(--wrapper),92%);
+
+    margin:auto;
+
+}
+
+
+/*=========================================================
+    HERO
+=========================================================*/
+
+.hero{
+
+    position:relative;
+
+    height:75vh;
+
+    min-height:620px;
+
+    overflow:hidden;
+
+}
+
+
+.hero-background{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    animation:heroZoom 30s linear infinite alternate;
+
+}
+
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(to bottom,
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.65));
+
+}
+
+
+.hero-content{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    z-index:2;
+
+    padding:20px;
+
+}
+
+
+.subtitle{
+
+    font-family:"Cormorant Garamond",serif;
+
+    text-transform:uppercase;
+
+    letter-spacing:6px;
+
+    color:var(--gold);
+
+    margin-bottom:15px;
+
+}
+
+
+.hero h1{
+
+    margin-bottom:25px;
+
+}
+
+
+.hero h1::after{
+
+    content:"";
+
+    display:block;
+
+    width:180px;
+
+    height:2px;
+
+    margin:22px auto;
+
+    background:var(--gold);
+
+}
+
+
+.quote{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:1.7rem;
+
+    font-style:italic;
+
+    color:#ece6dc;
+
+}
+
+
+/*=========================================================
+    ANIMATION HERO
+=========================================================*/
+
+@keyframes heroZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.10);
+
+    }
+
+}
+
+
+/*=========================================================
+    SECTIONS
+=========================================================*/
+
+section{
+
+    padding:110px 0;
+
+}
+
+.title-block{
+
+    margin-bottom:70px;
+
+    text-align:center;
+
+}
+
+.section-number{
+
+    display:block;
+
+    color:var(--gold);
+
+    font-size:1rem;
+
+    letter-spacing:6px;
+
+    margin-bottom:12px;
+
+    text-transform:uppercase;
+
+}
+
+
+.separator{
+
+    width:90px;
+
+    height:2px;
+
+    margin:22px auto;
+
+    background:var(--gold);
+
+}
+
+
+/*=========================================================
+    CINEMATIC GIF
+=========================================================*/
+
+.cinematic{
+
+    padding:0;
+
+}
+
+.cinematic img{
+
+    width:100%;
+
+    height:230px;
+
+    object-fit:cover;
+
+    filter:brightness(.75);
+
+}
+
+
+/*=========================================================
+    PRESENTATION
+=========================================================*/
+
+.presentation .wrapper{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:70px;
+
+    align-items:start;
+
+}
+
+
+.presentation-text{
+
+    font-size:1.15rem;
+
+}
+
+
+/*=========================================================
+    HOUSE CARD
+=========================================================*/
+
+.house-card{
+
+    background:linear-gradient(
+        180deg,
+        #171717,
+        #101010);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+    position:sticky;
+
+    top:30px;
+
+}
+
+.house-title{
+
+    padding:18px;
+
+    text-align:center;
+
+    border-bottom:1px solid rgba(255,255,255,.12);
+
+}
+
+.house-title h3{
+
+    margin:0;
+
+    font-size:1.5rem;
+
+    letter-spacing:2px;
+
+}
+
+.house-table{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:14px 20px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.row:last-child{
+
+    border-bottom:none;
+
+}
+
+.row span{
+
+    font-weight:600;
+
+    color:#cfcfcf;
+
+}
+
+.row strong{
+
+    font-weight:400;
+
+    color:white;
+
+    text-align:right;
+
+    max-width:55%;
+
+}
+
+.row img{
+
+    width:120px;
+
+    margin:auto;
+
+}
+
+.info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+
+.info span{
+
+    color:#9f9f9f;
+
+}
+
+
+.info strong{
+
+    color:white;
+
+    font-weight:500;
+
+}
+
+/*=========================================================
+    HISTOIRE
+=========================================================*/
+
+.history{
+
+    position:relative;
+
+}
+
+.history-block{
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    margin-bottom:120px;
+
+}
+
+.history-block:last-child{
+
+    margin-bottom:0;
+
+}
+
+.history-block.reverse{
+
+    grid-template-columns:1fr 1.2fr;
+
+}
+
+.history-text{
+
+    font-size:1.1rem;
+
+}
+
+.history-text p{
+
+    text-align:justify;
+
+}
+
+.history-image{
+
+    overflow:hidden;
+
+    border-radius:var(--radius);
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+}
+
+.history-image img{
+
+    width:100%;
+
+    height:520px;
+
+    object-fit:cover;
+
+    transition:transform .7s ease;
+
+}
+
+.history-image:hover img{
+
+    transform:scale(1.05);
+
+}
+
+
+/*=========================================================
+    TERRITOIRES
+=========================================================*/
+
+.territories{
+
+    background:#0d0d0d;
+
+}
+
+.territory-banner{
+
+    overflow:hidden;
+
+    border-radius:var(--radius);
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:45px;
+
+}
+
+.territory-banner img{
+
+    width:100%;
+
+    height:520px;
+
+    object-fit:cover;
+
+    transition:.8s;
+
+}
+
+.territory-banner:hover img{
+
+    transform:scale(1.04);
+
+}
+
+.territory-description{
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+    font-size:1.15rem;
+
+}
+
+
+/*=========================================================
+    PERSONNAGES
+=========================================================*/
+
+.character-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:35px;
+
+}
+
+.character-card{
+
+    background:linear-gradient(180deg,#181818,#111);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.character-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.55);
+
+}
+
+.character-card img{
+
+    width:100%;
+
+    height:370px;
+
+    object-fit:cover;
+
+}
+
+.character-content{
+
+    padding:28px;
+
+}
+
+.character-role{
+
+    display:inline-block;
+
+    font-size:.8rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    color:var(--gold);
+
+    margin-bottom:12px;
+
+}
+
+.character-content h3{
+
+    margin-bottom:15px;
+
+}
+
+.character-content p{
+
+    color:#bbbbbb;
+
+    margin-bottom:0;
+
+}
+
+
+/*=========================================================
+    GENEALOGIE
+=========================================================*/
+
+.genealogy-image{
+
+    overflow:auto;
+
+    padding:10px;
+
+    border-radius:var(--radius);
+
+    background:#101010;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+}
+
+.genealogy-image img{
+
+    min-width:100%;
+
+    height:auto;
+
+}
+
+.genealogy-note{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#9f9f9f;
+
+    font-style:italic;
+
+}
+
+
+/*=========================================================
+    MICRO-ANIMATIONS
+=========================================================*/
+
+.history-image,
+.territory-banner,
+.character-card,
+.house-card{
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.house-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.history-image:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.territory-banner:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/*=========================================================
+    DECORATIONS
+=========================================================*/
+
+.title-block{
+
+    position:relative;
+
+}
+
+.title-block::before{
+
+    content:"";
+
+    width:60px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    top:-18px;
+
+    opacity:.6;
+
+}
+
+.title-block::after{
+
+    content:"";
+
+    width:60px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:-18px;
+
+    opacity:.6;
+
+}
+
+
+/*=========================================================
+    SELECTION
+=========================================================*/
+
+::selection{
+
+    background:var(--gold);
+
+    color:black;
+
+}
+
+/*=========================================================
+    RELATIONS
+=========================================================*/
+
+.relation-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+}
+
+.relation-card{
+
+    position:relative;
+
+    background:linear-gradient(180deg,#171717,#101010);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    padding:32px;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.relation-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.relation-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:22px;
+
+}
+
+.relation-header img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:contain;
+
+}
+
+.relation-header h3{
+
+    margin-bottom:4px;
+
+}
+
+.relation-header span{
+
+    font-size:.85rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    color:#999;
+
+}
+
+
+/* Etats diplomatiques */
+
+.ally{
+
+    border-left:4px solid #5e8f58;
+
+}
+
+.ally:hover{
+
+    border-color:#7ec875;
+
+}
+
+.neutral{
+
+    border-left:4px solid #9c8a52;
+
+}
+
+.neutral:hover{
+
+    border-color:#d7c36e;
+
+}
+
+.enemy{
+
+    border-left:4px solid #8f3d3d;
+
+}
+
+.enemy:hover{
+
+    border-color:#d35f5f;
+
+}
+
+
+
+/*=========================================================
+    CHRONOLOGIE
+=========================================================*/
+
+.timeline-container{
+
+    position:relative;
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding-left:80px;
+
+}
+
+.timeline-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+
+    top:0;
+
+    bottom:0;
+
+    width:2px;
+
+    background:linear-gradient(
+        var(--gold),
+        rgba(255,255,255,.15)
+    );
+
+}
+
+.timeline-event{
+
+    position:relative;
+
+    margin-bottom:70px;
+
+}
+
+.timeline-event:last-child{
+
+    margin-bottom:0;
+
+}
+
+.timeline-event::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-64px;
+
+    top:8px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    border:4px solid #111;
+
+    box-shadow:0 0 0 3px rgba(255,255,255,.05);
+
+}
+
+.timeline-date{
+
+    font-family:"Cinzel";
+
+    color:var(--gold);
+
+    margin-bottom:12px;
+
+    letter-spacing:2px;
+
+    font-size:.95rem;
+
+}
+
+.timeline-content{
+
+    background:linear-gradient(180deg,#181818,#111);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.timeline-content:hover{
+
+    transform:translateX(8px);
+
+    border-color:var(--gold);
+
+}
+
+.timeline-content h3{
+
+    margin-bottom:12px;
+
+}
+
+.timeline-content p{
+
+    margin-bottom:0;
+
+}
+
+
+
+/*=========================================================
+    FOOTER
+=========================================================*/
+
+.footer{
+
+    background:#050505;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+    text-align:center;
+
+    padding:110px 0;
+
+}
+
+.footer-blason{
+
+    width:120px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    opacity:.9;
+
+}
+
+.footer h2{
+
+    margin-bottom:18px;
+
+}
+
+.footer p{
+
+    color:#b5b5b5;
+
+    font-style:italic;
+
+}
+
+.footer-divider{
+
+    width:90px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    margin:30px auto;
+
+}
+
+.footer small{
+
+    color:#666;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/*=========================================================
+    FADE-IN
+=========================================================*/
+
+.presentation,
+.history,
+.territories,
+.characters,
+.genealogy,
+.relations,
+.timeline{
+
+    animation:fadeUp .9s ease both;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+
+
+/*=========================================================
+    RESPONSIVE TABLETTE
+=========================================================*/
+
+@media (max-width:1100px){
+
+    .presentation .wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .house-card{
+
+        position:relative;
+
+        top:auto;
+
+        max-width:650px;
+
+        margin:auto;
+
+    }
+
+    .history-block,
+
+    .history-block.reverse{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+    .history-image{
+
+        order:-1;
+
+    }
+
+    .timeline-container{
+
+        padding-left:45px;
+
+    }
+
+}
+
+
+
+/*=========================================================
+    RESPONSIVE MOBILE
+=========================================================*/
+
+@media (max-width:768px){
+
+    h1{
+
+        font-size:2.8rem;
+
+        line-height:1.2;
+
+    }
+
+    h2{
+
+        font-size:2rem;
+
+    }
+
+    section{
+
+        padding:70px 0;
+
+    }
+
+    .hero{
+
+        min-height:520px;
+
+        height:70vh;
+
+    }
+
+    .hero h1::after{
+
+        width:120px;
+
+    }
+
+    .quote{
+
+        font-size:1.25rem;
+
+    }
+
+    .cinematic img{
+
+        height:150px;
+
+    }
+
+    .history-image img{
+
+        height:340px;
+
+    }
+
+    .territory-banner img{
+
+        height:320px;
+
+    }
+
+    .character-card img{
+
+        height:300px;
+
+    }
+
+    .relation-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/*=========================================================
+    PARTIE 4 - FINITIONS
+=========================================================*/
+
+
+/*=========================================================
+    FOND
+=========================================================*/
+
+body{
+
+    background:
+        radial-gradient(circle at top,
+            rgba(184,155,99,.05),
+            transparent 40%),
+
+        linear-gradient(
+            180deg,
+            #090909,
+            #060606 60%,
+            #040404);
+
+}
+
+
+/*=========================================================
+    GRAIN TRES LEGER
+=========================================================*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.035;
+
+    background-image:
+        url("images/noise.png");
+
+    background-size:300px;
+
+    z-index:999;
+
+}
+
+
+
+/*=========================================================
+    HALO DES TITRES
+=========================================================*/
+
+.title-block{
+
+    position:relative;
+
+}
+
+.title-block h2{
+
+    position:relative;
+
+    display:inline-block;
+
+    padding:0 40px;
+
+}
+
+.title-block h2::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:240px;
+
+    height:240px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            rgba(184,155,99,.07),
+
+            transparent 70%
+
+        );
+
+    z-index:-1;
+
+}
+
+
+
+/*=========================================================
+    OMBRES
+=========================================================*/
+
+.house-card,
+
+.character-card,
+
+.relation-card,
+
+.timeline-content,
+
+.history-image,
+
+.territory-banner{
+
+    box-shadow:
+
+        0 18px 45px rgba(0,0,0,.45),
+
+        inset 0 1px rgba(255,255,255,.03);
+
+}
+
+
+
+/*=========================================================
+    HOVER PREMIUM
+=========================================================*/
+
+.house-card:hover,
+
+.character-card:hover,
+
+.relation-card:hover,
+
+.timeline-content:hover{
+
+    box-shadow:
+
+        0 24px 60px rgba(0,0,0,.60);
+
+}
+
+
+
+/*=========================================================
+    BORDURES DOREES
+=========================================================*/
+
+.house-card::before,
+
+.character-card::before,
+
+.relation-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:2px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            var(--gold),
+
+            transparent
+
+        );
+
+    opacity:.35;
+
+}
+
+
+
+/*=========================================================
+    PARAGRAPHES
+=========================================================*/
+
+.presentation p,
+
+.history p,
+
+.territory-description p,
+
+.timeline p{
+
+    max-width:75ch;
+
+}
+
+
+
+/*=========================================================
+    LETTRINE
+=========================================================*/
+
+.history p:first-child::first-letter{
+
+    float:left;
+
+    font-size:4rem;
+
+    line-height:.85;
+
+    padding-right:10px;
+
+    color:var(--gold);
+
+    font-family:"Cinzel";
+
+}
+
+
+
+/*=========================================================
+    SCROLLBAR
+=========================================================*/
+
+::-webkit-scrollbar{
+
+    width:11px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#555;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--gold);
+
+}
+
+
+
+/*=========================================================
+    IMAGES
+=========================================================*/
+
+img{
+
+    user-select:none;
+
+}
+
+
+
+/*=========================================================
+    TRANSITIONS
+=========================================================*/
+
+*{
+
+    transition:
+
+        color .25s,
+
+        background-color .25s,
+
+        border-color .25s;
+
+}
+
+
+
+/*=========================================================
+    LIENS
+=========================================================*/
+
+a{
+
+    transition:.25s;
+
+}
+
+a:hover{
+
+    color:var(--gold);
+
+}
+
+
+
+/*=========================================================
+    FOOTER
+=========================================================*/
+
+.footer{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(184,155,99,.04),
+
+            transparent 70%
+
+        );
+
+    pointer-events:none;
+
+}
+
+
+
+/*=========================================================
+    RESPONSIVE GRAND MOBILE
+=========================================================*/
+
+@media (max-width:600px){
+
+    body{
+
+        font-size:17px;
+
+    }
+
+    h1{
+
+        font-size:2.3rem;
+
+    }
+
+    h2{
+
+        font-size:1.8rem;
+
+    }
+
+    .wrapper{
+
+        width:94%;
+
+    }
+
+    .character-grid{
+
+        gap:20px;
+
+    }
+
+}
+
+
+
+/*=========================================================
+    PETIT ECRAN
+=========================================================*/
+
+@media (max-width:450px){
+
+    .hero{
+
+        min-height:430px;
+
+    }
+
+    .hero-content{
+
+        padding:15px;
+
+    }
+
+    .subtitle{
+
+        letter-spacing:3px;
+
+    }
+
+    .quote{
+
+        font-size:1.1rem;
+
+    }
+
+    .house-header{
+
+        padding:25px;
+
+    }
+
+    .house-header img{
+
+        width:120px;
+
+    }
+
+}
+
+/*=========================================================
+    NAVIGATION
+=========================================================*/
+
+.page-nav{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(8,8,8,.88);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.page-nav .wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    padding:18px 0;
+
+}
+
+.page-nav a{
+
+    color:#d6d2cc;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:.85rem;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    transition:.3s;
+
+}
+
+.page-nav a:hover{
+
+    background:rgba(184,155,99,.12);
+
+    color:var(--gold);
+
+}
+
+.page-nav a::before{
+
+    content:"";
+
+    display:inline-block;
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    margin-right:8px;
+
+    opacity:.45;
+
+}
+
+section{
+
+    scroll-margin-top:90px;
+
+}
+
+@media(max-width:900px){
+
+.page-nav .wrapper{
+
+    justify-content:flex-start;
+
+    overflow-x:auto;
+
+    flex-wrap:nowrap;
+
+    padding:15px;
+
+}
+
+.page-nav .wrapper::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+}
+
+
+/*=========================================================
+    FIN
+=========================================================*/
