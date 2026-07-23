@@ -10,26 +10,41 @@
 
 :root{
 
-    --background:#080808;
-    --background-light:#111111;
+    /* Fond */
 
-    --panel:#161616;
+    --background:#070708;
 
-    --panel-hover:#1d1d1d;
+    --background-light:#111214;
 
-    --border:#343434;
+    /* Cartes */
 
-    --gold:#b89b63;
+    --panel:#1a1c21;
 
-    --gold-light:#d8c08a;
+    --panel-hover:#23262d;
 
-    --red:#7f2929;
+    /* Bordures */
 
-    --text:#d9d6d1;
+    --border:#3a3e47;
 
-    --title:#f2ede5;
+    /* Couleur d'accent */
 
-    --shadow:0 15px 40px rgba(0,0,0,.45);
+    --accent:#7d3d3d;
+
+    --accent-light:#a15858;
+
+    /* Texte */
+
+    --text:#d5d7db;
+
+    --text-muted:#9ca2ab;
+
+    /* Titres */
+
+    --title:#f1f1ef;
+
+    /* Ombres */
+
+    --shadow:0 18px 45px rgba(0,0,0,.55);
 
     --radius:14px;
 
@@ -129,6 +144,8 @@ h3{
 p{
 
     margin-bottom:1.5rem;
+    text-align:justify;
+    text-justify:inter-word;
 
 }
 
