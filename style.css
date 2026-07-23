@@ -2044,3 +2044,11 @@ em{
     color:var(--accent-light);
 
 }
+
+.footer p{
+
+    width:100%;
+    margin:0 auto 24px;
+    text-align:center;
+
+}
