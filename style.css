@@ -1,6 +1,6 @@
 /*=========================================================
     MAISON TEMPLATE
-    Version 1.0
+    Version 2.0
 =========================================================*/
 
 
@@ -10,43 +10,43 @@
 
 :root{
 
-    /* Fond */
+    /* ---------- Fond ---------- */
 
     --background:#070708;
+    --background-light:#121418;
 
-    --background-light:#111214;
+    /* ---------- Cartes ---------- */
 
-    /* Cartes */
+    --panel:#1c1f25;
+    --panel-alt:#232730;
+    --panel-hover:#2a2f39;
 
-    --panel:#1a1c21;
+    /* ---------- Bordures ---------- */
 
-    --panel-hover:#23262d;
+    --border:#363c46;
+    --border-light:#454c58;
 
-    /* Bordures */
+    /* ---------- Couleur d'accent ---------- */
 
-    --border:#3a3e47;
+    --accent:#7b4040;
+    --accent-light:#a85c5c;
 
-    /* Couleur d'accent */
+    /* ---------- Texte ---------- */
 
-    --accent:#7d3d3d;
+    --title:#e8eaed;
+    --text:#d2d5da;
+    --text-soft:#bcc2ca;
+    --text-muted:#8f97a2;
 
-    --accent-light:#a15858;
-
-    /* Texte */
-
-    --text:#d5d7db;
-
-    --text-muted:#9ca2ab;
-
-    /* Titres */
-
-    --title:#f1f1ef;
-
-    /* Ombres */
-
-    --shadow:0 18px 45px rgba(0,0,0,.55);
+    /* ---------- Effets ---------- */
 
     --radius:14px;
+
+    --shadow:
+        0 18px 45px rgba(0,0,0,.45);
+
+    --shadow-hover:
+        0 26px 60px rgba(0,0,0,.60);
 
     --wrapper:1300px;
 
@@ -74,19 +74,63 @@ html{
 
 body{
 
-    background:var(--background);
-
-    color:var(--text);
-
     font-family:"EB Garamond",serif;
-
-    line-height:1.8;
 
     font-size:18px;
 
+    line-height:1.8;
+
+    color:var(--text);
+
     overflow-x:hidden;
 
+    background:
+
+        radial-gradient(
+
+            circle at top,
+
+            rgba(123,64,64,.04),
+
+            transparent 35%
+
+        ),
+
+        linear-gradient(
+
+            180deg,
+
+            var(--background),
+
+            var(--background-light)
+
+        );
+
 }
+
+
+/* Léger grain */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.03;
+
+    background-image:url("images/noise.png");
+
+    background-size:320px;
+
+    z-index:999;
+
+}
+
 
 img{
 
@@ -94,13 +138,22 @@ img{
 
     max-width:100%;
 
+    user-select:none;
+
 }
+
 
 a{
 
     color:inherit;
 
     text-decoration:none;
+
+    transition:
+
+        color .25s ease,
+
+        opacity .25s ease;
 
 }
 
@@ -109,7 +162,9 @@ a{
     TYPOGRAPHIE
 =========================================================*/
 
-h1,h2,h3{
+h1,
+h2,
+h3{
 
     font-family:"Cinzel",serif;
 
@@ -117,13 +172,15 @@ h1,h2,h3{
 
     letter-spacing:2px;
 
+    font-weight:600;
+
 }
 
 h1{
 
     font-size:4.5rem;
 
-    font-weight:600;
+    line-height:1.1;
 
 }
 
@@ -141,11 +198,25 @@ h3{
 
 }
 
+
 p{
 
     margin-bottom:1.5rem;
+
     text-align:justify;
+
     text-justify:inter-word;
+
+    max-width:75ch;
+
+}
+
+
+::selection{
+
+    background:var(--accent);
+
+    color:white;
 
 }
 
@@ -171,11 +242,11 @@ p{
 
     position:relative;
 
+    overflow:hidden;
+
     height:75vh;
 
     min-height:620px;
-
-    overflow:hidden;
 
 }
 
@@ -200,9 +271,16 @@ p{
     inset:0;
 
     background:
-        linear-gradient(to bottom,
-        rgba(0,0,0,.15),
-        rgba(0,0,0,.65));
+
+        linear-gradient(
+
+            to bottom,
+
+            rgba(12,12,14,.15),
+
+            rgba(24,18,20,.72)
+
+        );
 
 }
 
@@ -212,6 +290,8 @@ p{
     position:absolute;
 
     inset:0;
+
+    z-index:2;
 
     display:flex;
 
@@ -223,9 +303,7 @@ p{
 
     text-align:center;
 
-    z-index:2;
-
-    padding:20px;
+    padding:25px;
 
 }
 
@@ -240,7 +318,7 @@ p{
 
     color:var(--accent);
 
-    margin-bottom:15px;
+    margin-bottom:18px;
 
 }
 
@@ -248,6 +326,10 @@ p{
 .hero h1{
 
     margin-bottom:25px;
+
+    text-shadow:
+
+        0 3px 18px rgba(0,0,0,.45);
 
 }
 
@@ -258,11 +340,11 @@ p{
 
     display:block;
 
-    width:180px;
+    width:170px;
 
     height:2px;
 
-    margin:22px auto;
+    margin:24px auto;
 
     background:var(--accent);
 
@@ -273,11 +355,13 @@ p{
 
     font-family:"Cormorant Garamond",serif;
 
-    font-size:1.7rem;
+    font-size:1.75rem;
 
     font-style:italic;
 
-    color:#ece6dc;
+    color:var(--text);
+
+    opacity:.95;
 
 }
 
@@ -296,7 +380,7 @@ p{
 
     to{
 
-        transform:scale(1.10);
+        transform:scale(1.08);
 
     }
 
@@ -304,36 +388,120 @@ p{
 
 
 /*=========================================================
-    SECTIONS
+    SECTIONS COMMUNES
 =========================================================*/
 
 section{
 
     padding:110px 0;
 
+    scroll-margin-top:90px;
+
 }
+
 
 .title-block{
 
-    margin-bottom:70px;
+    position:relative;
 
     text-align:center;
 
+    margin-bottom:70px;
+
 }
+
+
+.title-block::before,
+.title-block::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:60px;
+
+    height:1px;
+
+    background:var(--accent);
+
+    opacity:.45;
+
+}
+
+
+.title-block::before{
+
+    top:-18px;
+
+}
+
+
+.title-block::after{
+
+    bottom:-18px;
+
+}
+
+
+.title-block h2{
+
+    display:inline-block;
+
+    position:relative;
+
+    padding:0 40px;
+
+}
+
+
+.title-block h2::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            rgba(123,64,64,.07),
+
+            transparent 72%
+
+        );
+
+    z-index:-1;
+
+}
+
 
 .section-number{
 
     display:block;
 
-    color:var(--accent);
+    margin-bottom:12px;
 
-    font-size:1rem;
+    font-size:.95rem;
 
     letter-spacing:6px;
 
-    margin-bottom:12px;
-
     text-transform:uppercase;
+
+    color:var(--accent);
 
 }
 
@@ -344,7 +512,7 @@ section{
 
     height:2px;
 
-    margin:22px auto;
+    margin:24px auto;
 
     background:var(--accent);
 
@@ -352,7 +520,7 @@ section{
 
 
 /*=========================================================
-    CINEMATIC GIF
+    CINEMATIC
 =========================================================*/
 
 .cinematic{
@@ -369,10 +537,9 @@ section{
 
     object-fit:cover;
 
-    filter:brightness(.75);
+    filter:brightness(.72);
 
 }
-
 
 /*=========================================================
     PRESENTATION
@@ -390,10 +557,15 @@ section{
 
 }
 
-
 .presentation-text{
 
-    font-size:1.15rem;
+    font-size:1.12rem;
+
+}
+
+.presentation-text p:last-child{
+
+    margin-bottom:0;
 
 }
 
@@ -404,1144 +576,55 @@ section{
 
 .house-card{
 
-    background:linear-gradient(
-        180deg,
-        #171717,
-        #101010);
-
-    border:1px solid var(--border);
-
-    border-radius:var(--radius);
-
-    box-shadow:var(--shadow);
-
-    overflow:hidden;
-
     position:sticky;
 
     top:30px;
 
-}
-
-.house-title{
-
-    padding:18px;
-
-    text-align:center;
-
-    border-bottom:1px solid rgba(255,255,255,.12);
-
-}
-
-.house-title h3{
-
-    margin:0;
-
-    font-size:1.5rem;
-
-    letter-spacing:2px;
-
-}
-
-.house-table{
-
-    display:flex;
-
-    flex-direction:column;
-
-}
-
-.row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:18px;
-
-    padding:14px 20px;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-.row:last-child{
-
-    border-bottom:none;
-
-}
-
-.row span{
-
-    font-weight:600;
-
-    color:#cfcfcf;
-
-}
-
-.row strong{
-
-    font-weight:400;
-
-    color:white;
-
-    text-align:right;
-
-    max-width:55%;
-
-}
-
-.row img{
-
-    width:120px;
-
-    margin:auto;
-
-}
-
-.info{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:16px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.06);
-
-}
-
-
-.info span{
-
-    color:#9f9f9f;
-
-}
-
-
-.info strong{
-
-    color:white;
-
-    font-weight:500;
-
-}
-
-/*=========================================================
-    HISTOIRE
-=========================================================*/
-
-.history{
-
-    position:relative;
-
-}
-
-.history-block{
-
-    display:grid;
-
-    grid-template-columns:1.2fr 1fr;
-
-    gap:70px;
-
-    align-items:center;
-
-    margin-bottom:120px;
-
-}
-
-.history-block:last-child{
-
-    margin-bottom:0;
-
-}
-
-.history-block.reverse{
-
-    grid-template-columns:1fr 1.2fr;
-
-}
-
-.history-text{
-
-    font-size:1.1rem;
-
-}
-
-.history-text p{
-
-    text-align:justify;
-
-}
-
-.history-image{
-
     overflow:hidden;
 
     border-radius:var(--radius);
 
     border:1px solid var(--border);
 
-    box-shadow:var(--shadow);
+    background:
 
-}
+        linear-gradient(
 
-.history-image img{
+            180deg,
 
-    width:100%;
+            var(--panel),
 
-    height:520px;
+            var(--background-light)
 
-    object-fit:cover;
-
-    transition:transform .7s ease;
-
-}
-
-.history-image:hover img{
-
-    transform:scale(1.05);
-
-}
-
-
-/*=========================================================
-    TERRITOIRES
-=========================================================*/
-
-.territories{
-
-    background:#0d0d0d;
-
-}
-
-.territory-banner{
-
-    overflow:hidden;
-
-    border-radius:var(--radius);
-
-    border:1px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-    margin-bottom:45px;
-
-}
-
-.territory-banner img{
-
-    width:100%;
-
-    height:520px;
-
-    object-fit:cover;
-
-    transition:.8s;
-
-}
-
-.territory-banner:hover img{
-
-    transform:scale(1.04);
-
-}
-
-.territory-description{
-
-    max-width:900px;
-
-    margin:auto;
-
-    text-align:center;
-
-    font-size:1.15rem;
-
-}
-
-
-/*=========================================================
-    PERSONNAGES
-=========================================================*/
-
-.character-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-    gap:35px;
-
-}
-
-.character-card{
-
-    background:linear-gradient(180deg,#181818,#111);
-
-    border:1px solid var(--border);
-
-    border-radius:var(--radius);
-
-    overflow:hidden;
+        );
 
     box-shadow:var(--shadow);
 
     transition:
+
         transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
+
+        box-shadow .35s ease,
+
+        border-color .35s ease;
 
 }
 
-.character-card:hover{
-
-    transform:translateY(-12px);
-
-    border-color:var(--accent);
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.55);
-
-}
-
-.character-card img{
-
-    width:100%;
-
-    height:370px;
-
-    object-fit:cover;
-
-}
-
-.character-content{
-
-    padding:28px;
-
-}
-
-.character-role{
-
-    display:inline-block;
-
-    font-size:.8rem;
-
-    text-transform:uppercase;
-
-    letter-spacing:3px;
-
-    color:var(--accent);
-
-    margin-bottom:12px;
-
-}
-
-.character-content h3{
-
-    margin-bottom:15px;
-
-}
-
-.character-content p{
-
-    color:#bbbbbb;
-
-    margin-bottom:0;
-
-}
-
-
-/*=========================================================
-    GENEALOGIE
-=========================================================*/
-
-.genealogy-image{
-
-    overflow:auto;
-
-    padding:10px;
-
-    border-radius:var(--radius);
-
-    background:#101010;
-
-    border:1px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-}
-
-.genealogy-image img{
-
-    min-width:100%;
-
-    height:auto;
-
-}
-
-.genealogy-note{
-
-    margin-top:25px;
-
-    text-align:center;
-
-    color:#9f9f9f;
-
-    font-style:italic;
-
-}
-
-
-/*=========================================================
-    MICRO-ANIMATIONS
-=========================================================*/
-
-.history-image,
-.territory-banner,
-.character-card,
-.house-card{
-
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
-
-}
 
 .house-card:hover{
 
     transform:translateY(-6px);
 
-}
+    border-color:var(--border-light);
 
-.history-image:hover{
-
-    transform:translateY(-4px);
-
-}
-
-.territory-banner:hover{
-
-    transform:translateY(-4px);
+    box-shadow:var(--shadow-hover);
 
 }
 
 
-/*=========================================================
-    DECORATIONS
-=========================================================*/
+/* Liseré supérieur */
 
-.title-block{
-
-    position:relative;
-
-}
-
-.title-block::before{
-
-    content:"";
-
-    width:60px;
-
-    height:1px;
-
-    background:var(--accent);
-
-    position:absolute;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    top:-18px;
-
-    opacity:.6;
-
-}
-
-.title-block::after{
-
-    content:"";
-
-    width:60px;
-
-    height:1px;
-
-    background:var(--accent);
-
-    position:absolute;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    bottom:-18px;
-
-    opacity:.6;
-
-}
-
-
-/*=========================================================
-    SELECTION
-=========================================================*/
-
-::selection{
-
-    background:var(--accent);
-
-    color:black;
-
-}
-
-/*=========================================================
-    RELATIONS
-=========================================================*/
-
-.relation-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:35px;
-
-}
-
-.relation-card{
-
-    position:relative;
-
-    background:linear-gradient(180deg,#171717,#101010);
-
-    border:1px solid var(--border);
-
-    border-radius:var(--radius);
-
-    overflow:hidden;
-
-    box-shadow:var(--shadow);
-
-    padding:32px;
-
-    transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
-
-}
-
-.relation-card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.relation-header{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    margin-bottom:22px;
-
-}
-
-.relation-header img{
-
-    width:70px;
-
-    height:70px;
-
-    object-fit:contain;
-
-}
-
-.relation-header h3{
-
-    margin-bottom:4px;
-
-}
-
-.relation-header span{
-
-    font-size:.85rem;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    color:#999;
-
-}
-
-
-/* Etats diplomatiques */
-
-.ally{
-
-    border-left:4px solid #5e8f58;
-
-}
-
-.ally:hover{
-
-    border-color:#7ec875;
-
-}
-
-.neutral{
-
-    border-left:4px solid #9c8a52;
-
-}
-
-.neutral:hover{
-
-    border-color:#d7c36e;
-
-}
-
-.enemy{
-
-    border-left:4px solid #8f3d3d;
-
-}
-
-.enemy:hover{
-
-    border-color:#d35f5f;
-
-}
-
-
-
-/*=========================================================
-    CHRONOLOGIE
-=========================================================*/
-
-.timeline-container{
-
-    position:relative;
-
-    max-width:900px;
-
-    margin:auto;
-
-    padding-left:80px;
-
-}
-
-.timeline-container::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:28px;
-
-    top:0;
-
-    bottom:0;
-
-    width:2px;
-
-    background:linear-gradient(
-        var(--accent),
-        rgba(255,255,255,.15)
-    );
-
-}
-
-.timeline-event{
-
-    position:relative;
-
-    margin-bottom:70px;
-
-}
-
-.timeline-event:last-child{
-
-    margin-bottom:0;
-
-}
-
-.timeline-event::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:-64px;
-
-    top:8px;
-
-    width:18px;
-
-    height:18px;
-
-    border-radius:50%;
-
-    background:var(--accent);
-
-    border:4px solid #111;
-
-    box-shadow:0 0 0 3px rgba(255,255,255,.05);
-
-}
-
-.timeline-date{
-
-    font-family:"Cinzel";
-
-    color:var(--accent);
-
-    margin-bottom:12px;
-
-    letter-spacing:2px;
-
-    font-size:.95rem;
-
-}
-
-.timeline-content{
-
-    background:linear-gradient(180deg,#181818,#111);
-
-    border:1px solid var(--border);
-
-    border-radius:var(--radius);
-
-    padding:28px;
-
-    box-shadow:var(--shadow);
-
-    transition:.35s;
-
-}
-
-.timeline-content:hover{
-
-    transform:translateX(8px);
-
-    border-color:var(--accent);
-
-}
-
-.timeline-content h3{
-
-    margin-bottom:12px;
-
-}
-
-.timeline-content p{
-
-    margin-bottom:0;
-
-}
-
-
-
-/*=========================================================
-    FOOTER
-=========================================================*/
-
-.footer{
-
-    background:#050505;
-
-    border-top:1px solid rgba(255,255,255,.05);
-
-    text-align:center;
-
-    padding:110px 0;
-
-}
-
-.footer-blason{
-
-    width:120px;
-
-    margin:auto;
-
-    margin-bottom:25px;
-
-    opacity:.9;
-
-}
-
-.footer h2{
-
-    margin-bottom:18px;
-
-}
-
-.footer p{
-
-    color:#b5b5b5;
-
-    font-style:italic;
-
-}
-
-.footer-divider{
-
-    width:90px;
-
-    height:1px;
-
-    background:var(--accent);
-
-    margin:30px auto;
-
-}
-
-.footer small{
-
-    color:#666;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-}
-
-
-
-/*=========================================================
-    FADE-IN
-=========================================================*/
-
-.presentation,
-.history,
-.territories,
-.characters,
-.genealogy,
-.relations,
-.timeline{
-
-    animation:fadeUp .9s ease both;
-
-}
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(30px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:none;
-
-    }
-
-}
-
-
-
-/*=========================================================
-    RESPONSIVE TABLETTE
-=========================================================*/
-
-@media (max-width:1100px){
-
-    .presentation .wrapper{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .house-card{
-
-        position:relative;
-
-        top:auto;
-
-        max-width:650px;
-
-        margin:auto;
-
-    }
-
-    .history-block,
-
-    .history-block.reverse{
-
-        grid-template-columns:1fr;
-
-        gap:40px;
-
-    }
-
-    .history-image{
-
-        order:-1;
-
-    }
-
-    .timeline-container{
-
-        padding-left:45px;
-
-    }
-
-}
-
-
-
-/*=========================================================
-    RESPONSIVE MOBILE
-=========================================================*/
-
-@media (max-width:768px){
-
-    h1{
-
-        font-size:2.8rem;
-
-        line-height:1.2;
-
-    }
-
-    h2{
-
-        font-size:2rem;
-
-    }
-
-    section{
-
-        padding:70px 0;
-
-    }
-
-    .hero{
-
-        min-height:520px;
-
-        height:70vh;
-
-    }
-
-    .hero h1::after{
-
-        width:120px;
-
-    }
-
-    .quote{
-
-        font-size:1.25rem;
-
-    }
-
-    .cinematic img{
-
-        height:150px;
-
-    }
-
-    .history-image img{
-
-        height:340px;
-
-    }
-
-    .territory-banner img{
-
-        height:320px;
-
-    }
-
-    .character-card img{
-
-        height:300px;
-
-    }
-
-    .relation-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-/*=========================================================
-    PARTIE 4 - FINITIONS
-=========================================================*/
-
-
-/*=========================================================
-    FOND
-=========================================================*/
-
-body{
-
-    background:
-        radial-gradient(circle at top,
-            rgba(184,155,99,.05),
-            transparent 40%),
-
-        linear-gradient(
-            180deg,
-            #090909,
-            #060606 60%,
-            #040404);
-
-}
-
-
-/*=========================================================
-    GRAIN TRES LEGER
-=========================================================*/
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    opacity:.035;
-
-    background-image:
-        url("images/noise.png");
-
-    background-size:300px;
-
-    z-index:999;
-
-}
-
-
-
-/*=========================================================
-    HALO DES TITRES
-=========================================================*/
-
-.title-block{
-
-    position:relative;
-
-}
-
-.title-block h2{
-
-    position:relative;
-
-    display:inline-block;
-
-    padding:0 40px;
-
-}
-
-.title-block h2::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    width:240px;
-
-    height:240px;
-
-    border-radius:50%;
-
-    background:
-
-        radial-gradient(
-
-            rgba(184,155,99,.07),
-
-            transparent 70%
-
-        );
-
-    z-index:-1;
-
-}
-
-
-
-/*=========================================================
-    OMBRES
-=========================================================*/
-
-.house-card,
-
-.character-card,
-
-.relation-card,
-
-.timeline-content,
-
-.history-image,
-
-.territory-banner{
-
-    box-shadow:
-
-        0 18px 45px rgba(0,0,0,.45),
-
-        inset 0 1px rgba(255,255,255,.03);
-
-}
-
-
-
-/*=========================================================
-    HOVER PREMIUM
-=========================================================*/
-
-.house-card:hover,
-
-.character-card:hover,
-
-.relation-card:hover,
-
-.timeline-content:hover{
-
-    box-shadow:
-
-        0 24px 60px rgba(0,0,0,.60);
-
-}
-
-
-
-/*=========================================================
-    BORDURES DOREES
-=========================================================*/
-
-.house-card::before,
-
-.character-card::before,
-
-.relation-card::before{
+.house-card::before{
 
     content:"";
 
@@ -1569,109 +652,1086 @@ body::before{
 
         );
 
-    opacity:.35;
+    opacity:.55;
 
 }
 
 
+.house-title{
 
-/*=========================================================
-    PARAGRAPHES
-=========================================================*/
+    padding:22px;
 
-.presentation p,
+    text-align:center;
 
-.history p,
+    border-bottom:1px solid var(--border);
 
-.territory-description p,
+    background:
 
-.timeline p{
+        linear-gradient(
 
-    max-width:75ch;
+            180deg,
+
+            rgba(255,255,255,.015),
+
+            transparent
+
+        );
 
 }
 
 
+.house-title h3{
+
+    font-size:1.45rem;
+
+    margin:0;
+
+    letter-spacing:2px;
+
+}
+
+
+.house-table{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:15px 22px;
+
+    border-bottom:1px solid var(--border);
+
+    transition:
+
+        background .25s ease;
+
+}
+
+
+.row:last-child{
+
+    border-bottom:none;
+
+}
+
+
+.row:hover{
+
+    background:rgba(255,255,255,.025);
+
+}
+
+
+.row span{
+
+    color:var(--text-muted);
+
+    font-weight:600;
+
+    flex:1;
+
+}
+
+
+.row strong{
+
+    color:var(--text);
+
+    font-weight:500;
+
+    text-align:right;
+
+    flex:1;
+
+}
+
+
+.row img{
+
+    width:115px;
+
+    margin:auto;
+
+}
+
 
 /*=========================================================
-    LETTRINE
+    HISTOIRE
 =========================================================*/
 
-.history p:first-child::first-letter{
+.history{
+
+    position:relative;
+
+}
+
+
+.history-block{
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    margin-bottom:120px;
+
+}
+
+
+.history-block:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+.history-block.reverse{
+
+    grid-template-columns:1fr 1.2fr;
+
+}
+
+
+.history-text{
+
+    font-size:1.08rem;
+
+}
+
+
+.history-text p:first-child::first-letter{
 
     float:left;
 
+    font-family:"Cinzel",serif;
+
     font-size:4rem;
 
-    line-height:.85;
+    line-height:.82;
 
     padding-right:10px;
 
     color:var(--accent);
 
-    font-family:"Cinzel";
+}
+
+
+.history-image{
+
+    overflow:hidden;
+
+    position:relative;
+
+    border-radius:var(--radius);
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease,
+
+        border-color .35s ease;
+
+}
+
+
+.history-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            to bottom,
+
+            transparent,
+
+            rgba(0,0,0,.12)
+
+        );
+
+    pointer-events:none;
+
+}
+
+
+.history-image:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--border-light);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+.history-image img{
+
+    width:100%;
+
+    height:520px;
+
+    object-fit:cover;
+
+    transition:transform .8s ease;
+
+}
+
+
+.history-image:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/*=========================================================
+    TERRITOIRES
+=========================================================*/
+
+.territories{
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.015),
+
+            transparent 20%
+
+        );
+
+}
+
+
+.territory-banner{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:var(--radius);
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease,
+
+        border-color .35s ease;
+
+}
+
+
+.territory-banner:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--border-light);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+.territory-banner::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            to bottom,
+
+            transparent,
+
+            rgba(0,0,0,.20)
+
+        );
+
+    pointer-events:none;
+
+}
+
+
+.territory-banner img{
+
+    width:100%;
+
+    height:520px;
+
+    object-fit:cover;
+
+    transition:transform .9s ease;
+
+}
+
+
+.territory-banner:hover img{
+
+    transform:scale(1.04);
+
+}
+
+
+.territory-description{
+
+    margin:auto;
+
+    max-width:900px;
+
+    font-size:1.12rem;
+
+}
+
+
+.territory-description p:last-child{
+
+    margin-bottom:0;
 
 }
 
 
 
 /*=========================================================
-    SCROLLBAR
+    PERSONNAGES
 =========================================================*/
 
-::-webkit-scrollbar{
+.character-grid{
 
-    width:11px;
+    display:grid;
 
-}
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
 
-::-webkit-scrollbar-track{
-
-    background:#111;
+    gap:36px;
 
 }
 
-::-webkit-scrollbar-thumb{
 
-    background:#555;
+.character-card{
 
-    border-radius:20px;
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:var(--radius);
+
+    border:1px solid var(--border);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            var(--panel),
+
+            var(--background-light)
+
+        );
+
+    box-shadow:var(--shadow);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease,
+
+        border-color .35s ease;
 
 }
 
-::-webkit-scrollbar-thumb:hover{
+
+.character-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:2px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            var(--accent),
+
+            transparent
+
+        );
+
+    opacity:.55;
+
+}
+
+
+.character-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:var(--border-light);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+.character-card img{
+
+    width:100%;
+
+    height:380px;
+
+    object-fit:cover;
+
+    transition:transform .8s ease;
+
+}
+
+
+.character-card:hover img{
+
+    transform:scale(1.04);
+
+}
+
+
+.character-content{
+
+    padding:28px;
+
+}
+
+
+.character-role{
+
+    display:inline-block;
+
+    margin-bottom:12px;
+
+    color:var(--accent);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:.82rem;
+
+}
+
+
+.character-content h3{
+
+    margin-bottom:14px;
+
+}
+
+
+.character-content p{
+
+    color:var(--text-soft);
+
+    margin-bottom:0;
+
+}
+
+
+
+/*=========================================================
+    GENEALOGIE
+=========================================================*/
+
+.genealogy-image{
+
+    overflow:auto;
+
+    padding:14px;
+
+    border-radius:var(--radius);
+
+    border:1px solid var(--border);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            var(--panel),
+
+            var(--background-light)
+
+        );
+
+    box-shadow:var(--shadow);
+
+    transition:
+
+        transform .35s ease,
+
+        border-color .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+
+.genealogy-image:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--border-light);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+.genealogy-image img{
+
+    min-width:100%;
+
+    height:auto;
+
+}
+
+
+.genealogy-note{
+
+    margin-top:28px;
+
+    text-align:center;
+
+    color:var(--text-muted);
+
+    font-style:italic;
+
+}
+
+/*=========================================================
+    RELATIONS
+=========================================================*/
+
+.relations{
+
+    position:relative;
+
+}
+
+
+.relations-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:36px;
+
+}
+
+
+.relation-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:34px;
+
+    border-radius:var(--radius);
+
+    border:1px solid var(--border);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            var(--panel),
+
+            var(--background-light)
+
+        );
+
+    box-shadow:var(--shadow);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease,
+
+        border-color .35s ease;
+
+}
+
+
+.relation-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:2px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            var(--accent),
+
+            transparent
+
+        );
+
+    opacity:.55;
+
+}
+
+
+.relation-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--border-light);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+.relation-card h3{
+
+    margin-bottom:16px;
+
+}
+
+
+.relation-card p{
+
+    color:var(--text-soft);
+
+    margin-bottom:0;
+
+}
+
+
+
+/*=========================================================
+    CHRONOLOGIE
+=========================================================*/
+
+.timeline{
+
+    position:relative;
+
+    max-width:950px;
+
+    margin:auto;
+
+}
+
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+
+    left:32px;
+
+    width:2px;
+
+    background:
+
+        linear-gradient(
+
+            var(--accent),
+
+            transparent
+
+        );
+
+    opacity:.55;
+
+}
+
+
+.timeline-item{
+
+    position:relative;
+
+    margin-bottom:48px;
+
+    padding-left:90px;
+
+}
+
+
+.timeline-item:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+.timeline-dot{
+
+    position:absolute;
+
+    left:20px;
+    top:10px;
+
+    width:24px;
+    height:24px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    border:4px solid var(--panel);
+
+    box-shadow:
+
+        0 0 0 2px var(--border);
+
+}
+
+
+.timeline-content{
+
+    padding:28px;
+
+    border-radius:var(--radius);
+
+    border:1px solid var(--border);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            var(--panel),
+
+            var(--background-light)
+
+        );
+
+    box-shadow:var(--shadow);
+
+    transition:
+
+        transform .35s ease,
+
+        border-color .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+
+.timeline-content:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--border-light);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+.timeline-date{
+
+    display:inline-block;
+
+    margin-bottom:12px;
+
+    font-family:"Cinzel",serif;
+
+    letter-spacing:2px;
+
+    color:var(--accent);
+
+    font-size:.9rem;
+
+    text-transform:uppercase;
+
+}
+
+
+.timeline-content h3{
+
+    margin-bottom:12px;
+
+}
+
+
+.timeline-content p{
+
+    margin-bottom:0;
+
+    color:var(--text-soft);
+
+}
+
+
+
+/*=========================================================
+    FOOTER
+=========================================================*/
+
+footer{
+
+    margin-top:120px;
+
+    padding:70px 0;
+
+    text-align:center;
+
+    border-top:1px solid var(--border);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.02),
+
+            transparent
+
+        );
+
+}
+
+
+.footer-logo{
+
+    font-family:"Cinzel",serif;
+
+    font-size:2rem;
+
+    letter-spacing:4px;
+
+    color:var(--title);
+
+    margin-bottom:16px;
+
+}
+
+
+.footer-separator{
+
+    width:90px;
+
+    height:2px;
+
+    margin:20px auto 28px;
 
     background:var(--accent);
 
 }
 
 
+footer p{
+
+    margin:auto;
+
+    max-width:70ch;
+
+    color:var(--text-muted);
+
+    text-align:center;
+
+}
+
+
+.footer-credit{
+
+    margin-top:36px;
+
+    font-size:.95rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--accent);
+
+}
 
 /*=========================================================
-    IMAGES
+    NAVIGATION STICKY
 =========================================================*/
 
-img{
+.page-nav{
 
-    user-select:none;
+    position:sticky;
+
+    top:0;
+
+    z-index:500;
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(10,11,13,.82);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+
+.page-nav ul{
+
+    list-style:none;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 24px;
+
+    overflow-x:auto;
+
+}
+
+
+.page-nav li{
+
+    flex-shrink:0;
+
+}
+
+
+.page-nav a{
+
+    display:block;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    color:var(--text-soft);
+
+    font-size:.92rem;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    transition:all .30s ease;
+
+}
+
+
+.page-nav a:hover{
+
+    color:var(--title);
+
+    background:rgba(123,64,64,.12);
+
+}
+
+
+.page-nav a.active{
+
+    background:var(--accent);
+
+    color:white;
 
 }
 
 
 
 /*=========================================================
-    TRANSITIONS
+    APPARITION AU SCROLL
 =========================================================*/
 
-*{
+.fade{
+
+    opacity:0;
+
+    transform:translateY(45px);
 
     transition:
 
-        color .25s,
+        opacity .8s ease,
 
-        background-color .25s,
+        transform .8s ease;
 
-        border-color .25s;
+}
+
+
+.fade.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
 
 }
 
@@ -1683,253 +1743,428 @@ img{
 
 a{
 
-    transition:.25s;
+    transition:
+
+        color .25s ease,
+
+        opacity .25s ease,
+
+        transform .25s ease;
 
 }
+
 
 a:hover{
 
-    color:var(--accent);
+    opacity:.92;
 
 }
 
 
 
 /*=========================================================
-    FOOTER
+    IMAGES
 =========================================================*/
 
-.footer{
+img{
 
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.footer::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        radial-gradient(
-
-            circle,
-
-            rgba(184,155,99,.04),
-
-            transparent 70%
-
-        );
-
-    pointer-events:none;
+    transition:transform .5s ease;
 
 }
 
 
 
 /*=========================================================
-    RESPONSIVE GRAND MOBILE
+    BOUTONS
 =========================================================*/
 
-@media (max-width:600px){
+.button,
+.btn{
 
-    body{
-
-        font-size:17px;
-
-    }
-
-    h1{
-
-        font-size:2.3rem;
-
-    }
-
-    h2{
-
-        font-size:1.8rem;
-
-    }
-
-    .wrapper{
-
-        width:94%;
-
-    }
-
-    .character-grid{
-
-        gap:20px;
-
-    }
-
-}
-
-
-
-/*=========================================================
-    PETIT ECRAN
-=========================================================*/
-
-@media (max-width:450px){
-
-    .hero{
-
-        min-height:430px;
-
-    }
-
-    .hero-content{
-
-        padding:15px;
-
-    }
-
-    .subtitle{
-
-        letter-spacing:3px;
-
-    }
-
-    .quote{
-
-        font-size:1.1rem;
-
-    }
-
-    .house-header{
-
-        padding:25px;
-
-    }
-
-    .house-header img{
-
-        width:120px;
-
-    }
-
-}
-
-/*=========================================================
-    NAVIGATION
-=========================================================*/
-
-.page-nav{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
-    backdrop-filter:blur(12px);
-
-    background:rgba(8,8,8,.88);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-.page-nav .wrapper{
-
-    display:flex;
-
-    justify-content:center;
+    display:inline-flex;
 
     align-items:center;
 
-    flex-wrap:wrap;
+    justify-content:center;
 
     gap:12px;
 
-    padding:18px 0;
-
-}
-
-.page-nav a{
-
-    color:#d6d2cc;
-
-    text-decoration:none;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    font-size:.85rem;
-
-    padding:8px 18px;
+    padding:14px 28px;
 
     border-radius:999px;
 
-    transition:.3s;
+    border:1px solid var(--border);
+
+    background:var(--panel);
+
+    color:var(--text);
+
+    transition:all .3s ease;
 
 }
 
-.page-nav a:hover{
 
-    background:rgba(184,155,99,.12);
+.button:hover,
+.btn:hover{
 
-    color:var(--accent);
+    background:var(--panel-hover);
 
-}
+    border-color:var(--accent);
 
-.page-nav a::before{
-
-    content:"";
-
-    display:inline-block;
-
-    width:6px;
-
-    height:6px;
-
-    border-radius:50%;
-
-    background:var(--accent);
-
-    margin-right:8px;
-
-    opacity:.45;
+    transform:translateY(-2px);
 
 }
 
-section{
-
-    scroll-margin-top:90px;
-
-}
-
-@media(max-width:900px){
-
-.page-nav .wrapper{
-
-    justify-content:flex-start;
-
-    overflow-x:auto;
-
-    flex-wrap:nowrap;
-
-    padding:15px;
-
-}
-
-.page-nav .wrapper::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-}
 
 
 /*=========================================================
-    FIN
+    SCROLLBAR
 =========================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:var(--background);
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--border);
+
+    border-radius:50px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--accent);
+
+}
+
+
+
+/*=========================================================
+    FOCUS ACCESSIBILITE
+=========================================================*/
+
+a:focus-visible,
+button:focus-visible{
+
+    outline:2px solid var(--accent);
+
+    outline-offset:4px;
+
+}
+
+
+
+/*=========================================================
+    TABLETTE
+=========================================================*/
+
+@media (max-width:1100px){
+
+.presentation .wrapper{
+
+    grid-template-columns:1fr;
+
+}
+
+.house-card{
+
+    position:relative;
+
+    top:auto;
+
+}
+
+.history-block,
+.history-block.reverse{
+
+    grid-template-columns:1fr;
+
+}
+
+.history-image{
+
+    order:-1;
+
+}
+
+}
+
+
+
+/*=========================================================
+    MOBILE
+=========================================================*/
+
+@media (max-width:768px){
+
+body{
+
+    font-size:17px;
+
+}
+
+
+h1{
+
+    font-size:2.8rem;
+
+}
+
+
+h2{
+
+    font-size:2rem;
+
+}
+
+
+.quote{
+
+    font-size:1.35rem;
+
+}
+
+
+.hero{
+
+    min-height:520px;
+
+}
+
+
+section{
+
+    padding:80px 0;
+
+}
+
+
+.character-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.relations-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.timeline::before{
+
+    left:18px;
+
+}
+
+
+.timeline-item{
+
+    padding-left:55px;
+
+}
+
+
+.timeline-dot{
+
+    left:6px;
+
+}
+
+
+.timeline-content{
+
+    padding:22px;
+
+}
+
+
+.page-nav ul{
+
+    justify-content:flex-start;
+
+}
+
+}
+
+
+
+/*=========================================================
+    PETITS SMARTPHONES
+=========================================================*/
+
+@media (max-width:500px){
+
+.wrapper{
+
+    width:94%;
+
+}
+
+
+.hero{
+
+    min-height:430px;
+
+}
+
+
+.hero h1{
+
+    font-size:2.25rem;
+
+}
+
+
+.subtitle{
+
+    letter-spacing:4px;
+
+    font-size:.85rem;
+
+}
+
+
+.quote{
+
+    font-size:1.15rem;
+
+}
+
+
+.title-block h2{
+
+    padding:0;
+
+}
+
+
+.history-image img{
+
+    height:340px;
+
+}
+
+
+.territory-banner img{
+
+    height:280px;
+
+}
+
+
+.character-card img{
+
+    height:300px;
+
+}
+
+}
+
+
+
+/*=========================================================
+    ANIMATIONS
+=========================================================*/
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-4px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+
+.character-card:hover,
+.house-card:hover,
+.timeline-content:hover,
+.relation-card:hover,
+.territory-banner:hover,
+.history-image:hover{
+
+    animation:float .8s ease;
+
+}
+
+
+
+/*=========================================================
+    FINITIONS
+=========================================================*/
+
+hr{
+
+    border:none;
+
+    height:1px;
+
+    background:var(--border);
+
+    margin:70px 0;
+
+}
+
+
+blockquote{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:1.6rem;
+
+    font-style:italic;
+
+    color:var(--text-soft);
+
+    border-left:3px solid var(--accent);
+
+    padding-left:24px;
+
+    margin:35px 0;
+
+}
+
+
+strong{
+
+    color:var(--title);
+
+    font-weight:600;
+
+}
+
+
+em{
+
+    color:var(--accent-light);
+
+}
