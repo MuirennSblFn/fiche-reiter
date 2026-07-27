@@ -1416,9 +1416,9 @@ section{
 
 .section-intro{
 
-    max-width:700px;
+    max-width:760px;
 
-    margin:25px auto 70px;
+    margin:30px auto 70px;
 
     text-align:center;
 
@@ -1432,7 +1432,7 @@ section{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
 
     gap:35px;
 
@@ -1440,37 +1440,15 @@ section{
 
 .trivia-card{
 
-    position:relative;
-
-    padding:35px;
-
     background:var(--panel);
 
     border:1px solid var(--border);
 
-    border-radius:14px;
+    border-radius:18px;
+
+    padding:32px;
 
     transition:.35s;
-
-    overflow:hidden;
-
-}
-
-.trivia-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    top:0;
-
-    width:5px;
-
-    height:100%;
-
-    background:var(--accent);
 
 }
 
@@ -1480,7 +1458,7 @@ section{
 
     border-color:var(--accent);
 
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
 
 }
 
@@ -1488,19 +1466,19 @@ section{
 
     display:inline-block;
 
-    margin-bottom:18px;
+    padding:7px 18px;
 
-    padding:5px 14px;
-
-    border:1px solid var(--accent);
+    margin-bottom:20px;
 
     border-radius:999px;
 
+    background:rgba(123,64,64,.14);
+
     color:var(--accent);
 
-    font-size:.75rem;
-
     letter-spacing:2px;
+
+    font-size:.72rem;
 
     text-transform:uppercase;
 
@@ -1516,7 +1494,7 @@ section{
 
     margin:0;
 
-    line-height:1.8;
+    line-height:1.85;
 
 }
 
