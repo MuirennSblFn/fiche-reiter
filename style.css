@@ -1404,7 +1404,121 @@ section{
 
 }
 
+/*=========================================================
+    TRIVIA
+=========================================================*/
 
+.trivia{
+
+    padding:120px 0;
+
+}
+
+.section-intro{
+
+    max-width:700px;
+
+    margin:25px auto 70px;
+
+    text-align:center;
+
+    color:var(--text-muted);
+
+    font-style:italic;
+
+}
+
+.trivia-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+}
+
+.trivia-card{
+
+    position:relative;
+
+    padding:35px;
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+.trivia-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:5px;
+
+    height:100%;
+
+    background:var(--accent);
+
+}
+
+.trivia-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--accent);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.trivia-tag{
+
+    display:inline-block;
+
+    margin-bottom:18px;
+
+    padding:5px 14px;
+
+    border:1px solid var(--accent);
+
+    border-radius:999px;
+
+    color:var(--accent);
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+.trivia-card h3{
+
+    margin-bottom:18px;
+
+}
+
+.trivia-card p{
+
+    margin:0;
+
+    line-height:1.8;
+
+}
 
 /*=========================================================
     CHRONOLOGIE
